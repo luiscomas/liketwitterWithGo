@@ -79,7 +79,7 @@ func ExecuteLambda(ctx context.Context, request events.APIGatewayProxyRequest) (
 			},
 		}
 		return res, nil
-	}else {
+	} else {
 		return respAPI.CustomResp, nil
 	}
 }
