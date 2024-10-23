@@ -9,7 +9,8 @@ import (
 	lambda "github.com/aws/aws-lambda-go/lambda"
 	db "github.com/luiscomas/liketwitterWithGo/DB"
 	"github.com/luiscomas/liketwitterWithGo/awsgo"
-	"github.com/luiscomas/liketwitterWithGo/handler"
+	"github.com/luiscomas/liketwitterWithGo/handlers"
+
 	"github.com/luiscomas/liketwitterWithGo/models"
 	"github.com/luiscomas/liketwitterWithGo/secretmanager"
 )
@@ -68,8 +69,9 @@ func ExecuteLambda(ctx context.Context, request events.APIGatewayProxyRequest) (
 		}
 		return res, nil
 	}
+	//respuestas de hanfdlers
 
-	respAPI := handler.Handlers(awsgo.Ctx, request)
+	respAPI := handlers.Handlers(awsgo.Ctx, request)
 	if respAPI.CustomResp == nil {
 		res = &events.APIGatewayProxyResponse{
 			StatusCode: respAPI.Status,

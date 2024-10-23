@@ -8,7 +8,7 @@ import (
 	"github.com/luiscomas/liketwitterWithGo/models"
 )
 
-func handlers(ctx context.Context, request events.APIGatewayProxyRequest) models.RespAPI {
+func Handlers(ctx context.Context, request events.APIGatewayProxyRequest) models.RespAPI {
 	fmt.Println("procesando " + ctx.Value(models.Key("path")).(string) + " " + ctx.Value(models.Key("method")).(string))
 
 	var r models.RespAPI
